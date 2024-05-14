@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora De Preço</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="divTitulo">
+            <h2>CALCULADORA DE PREÇO</h2>
+        </div>
+        <div>
+            <div class="grupoInput">
+                <div class="label">
+                    <span>PRODUTO</span>
+                </div>
+                <div class="input">
+                        <input id="nomeProduto" onfocus="alterarVerde(event)" onblur="alterarBranco(event)" max="100"/>
+                </div>
+            </div>
+            <div class="grupoInput">
+                <div class="label">
+                    <span>PREÇO DE COMPRA</span>
+                </div>
+                <div class="input">
+                        <input id="preçoCompra" onfocus="alterarVerde(event)" onblur="alterarBranco(event)" max="100"/>
+                </div>
+            </div>
+            <div class="grupoInput">
+                <div class="label">
+                    <span>CUSTO OPERAC.</span>
+                </div>
+                <div class="input">
+                        <input id="custoOperacional" onfocus="alterarVerde(event)" onblur="alterarBranco(event)" max="100"/>
+                </div>
+            </div>
+            <div class="grupoInput">
+                <div class="label">
+                    <span>% LUCRO</span>
+                </div>
+                <div class="input">
+                        <input id="percentualLucro" onfocus="alterarVerde(event)" onblur="alterarBranco(event)" max="100"/>
+                </div>
+            </div>
+            <div class="grupoInput">
+                <div class="label">
+                    <span>VALOR VENDA</span>
+                </div>
+                <div class="input">
+                        <input id="ValorVenda" onfocus="alterarVerde(event)" onblur="alterarBranco(event)" max="100"/>
+                </div>
+            </div>    
+        </div>
+        <div>
+            <button class="btnCalcular>" onclick=calcularPreçoProduto()>Calcular</button>
+        </div>
+    </div>
+    
+</div>
+<script>
+    function calcularPreçoProduto(){
+        const vCompra = document.getElementById("presoCompra").value;
+        const vCusto = document.getElementById("custoOperacional").value;
+        const vPrecentual = document.getElementById("precentualLucro").value;
+        let objValorVenda = documento.getElementById("valorVenda");
+        objValorVenda.value = parseFloat(vCompra)+parseFloat(vCusto)+(parseFloat(vCompra)*parseFloat(vPrecentual)/100 );
+    }
+    function alterarVerde(obj){     
+        obj.target.style.backgroundColor = "#c8f751";
+    }
+    function alterarBranco(obj){      
+        obj.target.style.backgroundColor = "#ffffff";
+    }
+
+</script>
+    
+</body>
+</html>
